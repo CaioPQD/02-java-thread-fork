@@ -1,26 +1,31 @@
 package tarefa;
 
-public class Tarefa implements Runnable {
-    private String nome;
-
-    public Tarefa(String nome) {
-        this.nome = nome;
-    }
+public class ServicoBackup implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 1; i <= 3; i++) {
-            System.out.println(nome + " processando passo " + i + ".");
+
+        for (int i = 1; i <= 5; i++) {
+
+            System.out.println("Executando etapa " + i + " do backup...");
+
             try {
-                // A thread tenta dormir por 2 segundos.
-                Thread.sleep(2000); 
+                // Simula um processamento pesado de 1 segundo
+                Thread.sleep(1000);
+
             } catch (InterruptedException e) {
-                // O .interrupt() ativa ESTE BLOCO EXATAMENTE AQUI:
-                System.out.println("-> CATCH ATIVADO: " + nome + " foi interrompida no meio do sono!");
-                // Finaliza o método run mais cedo para parar a execução.
-                return; 
+
+                System.out.println(
+                    "-> CRÍTICO: O backup foi cancelado pelo usuário! " +
+                    "Limpando arquivos temporários..."
+                );
+
+                return;
             }
         }
-        System.out.println(nome + " FINALIZADA COM SUCESSO!");
+
+        System.out.println(
+            "-> SUCESSO: Backup concluído e salvo no servidor!"
+        );
     }
 }
