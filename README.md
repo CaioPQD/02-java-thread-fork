@@ -39,9 +39,9 @@ Cenário A (Cancelamento): faça a main esperar apenas 2 segundos (2000 ms) ante
 
 Cenário B (Sucesso): altere a main para esperar 7 segundos (7000 ms) antes de disparar o .interrupt(). Como 7 segundos é tempo suficiente para o backup rodar os seus 5 segundos totais, a tarefa deve terminar com sucesso antes mesmo de a main tentar interrompê-la.
 
-**# Solução:**
+# Solução:
 
-**## 1. Classe `ServicoBackup`**
+## 1. Classe `ServicoBackup`
 
 A classe implementa `Runnable`, permitindo que o backup seja executado por uma `Thread`.
 
@@ -87,7 +87,7 @@ Se nenhuma interrupção acontecer, o loop termina e a mensagem de sucesso é ex
 
 ---
 
-**## 2. Classe `Main`**
+## 2. Classe `Main`
 
 ### Cenário A — Cancelamento
 
@@ -155,7 +155,7 @@ return → thread encerrada
 
 ---
 
-**## 3. Cenário B — Sucesso**
+## 3. Cenário B — Sucesso
 
 Para testar o sucesso, basta trocar:
 
@@ -186,7 +186,7 @@ A mensagem exibida será:
 
 ---
 
-**## 4. Conceitos principais**
+## 4. Conceitos principais
 
 * `Runnable` → representa a tarefa que será executada pela thread.
 * `Thread` → executa a tarefa em uma thread separada.
